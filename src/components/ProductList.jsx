@@ -1,4 +1,3 @@
-// src/components/ProductList.jsx
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
@@ -12,14 +11,19 @@ const ProductList = () => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <div>
-      <h2>Productos Disponibles</h2>
-      <ul>
+    <div className="product-list">
+      <h2 className="product-list__title">Productos Disponibles</h2>
+      <ul className="product-list__items">
         {products.map((product) => (
-          <li key={product.id}>
-            <h3>{product.name}</h3>
-            <p>${product.price}</p>
-            <button onClick={() => addToCart(product)}>Agregar al carrito</button>
+          <li key={product.id} className="product-list__item">
+            <h3 className="product-list__item-name">{product.name}</h3>
+            <p className="product-list__item-price">${product.price}</p>
+            <button
+              onClick={() => addToCart(product)}
+              className="product-list__item-button"
+            >
+              Agregar al carrito
+            </button>
           </li>
         ))}
       </ul>
